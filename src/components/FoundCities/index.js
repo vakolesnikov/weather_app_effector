@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './index.css';
+import { useStore } from 'effector-react';
+import { foundCities } from '../../store';
 
 const FoundCities = props => {
-    const { citiesFound, actionAddCity, handleCloseSearchInterface } = props;
+    const { actionAddCity, handleCloseSearchInterface } = props;
+    const currentFoundCities = useStore(foundCities);
 
     return (
         <div className="found-cities">
-            {citiesFound.map(city => {
+            {currentFoundCities.map(city => {
                 const { id, name, weather, main } = city;
 
                 const handleClickCity = () => {
@@ -48,7 +51,6 @@ const FoundCities = props => {
 };
 
 FoundCities.propTypes = {
-    citiesFound: PropTypes.arrayOf(PropTypes.object).isRequired,
     actionAddCity: PropTypes.func.isRequired,
     handleCloseSearchInterface: PropTypes.func.isRequired
 };

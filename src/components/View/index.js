@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import SearchInterface from '../../containers/SearchInterface';
+
 import FavoritesCities from '../../containers/FavoritesCities';
 import DefaultCity from '../../containers/DefaultCity';
-
 import './index.css';
 
 export default function View(props) {

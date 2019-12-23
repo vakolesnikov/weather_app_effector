@@ -6,6 +6,8 @@ import FoundCities from '../FoundCities';
 
 import './index.css';
 
+import { searchCity } from '../../events';
+
 class SearchInterface extends React.Component {
     static propTypes = {
         actionSearchCity: PropTypes.func.isRequired,
@@ -29,6 +31,8 @@ class SearchInterface extends React.Component {
             cityValue: value
         });
         actionSearchCity(value);
+
+        searchCity(value);
     };
 
     handleClearSearchInput = () => {
