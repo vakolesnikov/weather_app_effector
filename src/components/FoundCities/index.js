@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import './index.css';
 import { useStore } from 'effector-react';
 import { foundCities } from '../../store';
+import { addCity } from '../../events';
 
 const FoundCities = props => {
-    const { actionAddCity, handleCloseSearchInterface } = props;
+    const { handleCloseSearchInterface } = props;
     const currentFoundCities = useStore(foundCities);
 
     return (
@@ -15,7 +16,7 @@ const FoundCities = props => {
                 const { id, name, weather, main } = city;
 
                 const handleClickCity = () => {
-                    actionAddCity(id);
+                    addCity(id);
                     handleCloseSearchInterface();
                 };
 
@@ -51,7 +52,6 @@ const FoundCities = props => {
 };
 
 FoundCities.propTypes = {
-    actionAddCity: PropTypes.func.isRequired,
     handleCloseSearchInterface: PropTypes.func.isRequired
 };
 

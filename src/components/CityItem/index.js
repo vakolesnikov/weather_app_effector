@@ -5,10 +5,12 @@ import DeleteIcon from '../../icons/Delete';
 
 import './index.css';
 
-const CityItem = ({ city, actionRemoveCity, excludeDeleteIcon }) => {
+import { removeCity } from '../../events';
+
+const CityItem = ({ city, excludeDeleteIcon }) => {
     const { id, main, weather } = city;
 
-    const handleRemoveClick = () => actionRemoveCity(id);
+    const handleRemoveClick = () => removeCity(id);
 
     return (
         <div key={city.id} className="city-item">
@@ -39,13 +41,11 @@ const CityItem = ({ city, actionRemoveCity, excludeDeleteIcon }) => {
 
 CityItem.propTypes = {
     city: PropTypes.objectOf(PropTypes.any).isRequired,
-    actionRemoveCity: PropTypes.func,
     excludeDeleteIcon: PropTypes.bool
 };
 
 CityItem.defaultProps = {
-    excludeDeleteIcon: false,
-    actionRemoveCity: Function.prototype
+    excludeDeleteIcon: false
 };
 
 export default CityItem;

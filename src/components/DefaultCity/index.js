@@ -1,34 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import { useStore } from 'effector-react';
 import Loader from '../Loader';
+
 import CityItem from '../CityItem';
-
 import './index.css';
+import { defaultCity } from '../../store';
 
-const DefaultCity = props => {
-    const { defaultCity, isLoadUserLocation, isErrorLoadUserLocation } = props;
+const DefaultCity = () => {
+    const currentDefaultCity = useStore(defaultCity);
 
     return (
         <div className="default-city">
-            {!isLoadUserLocation && isErrorLoadUserLocation && (
-                <div className="default-city__load-error">Geolocation not defined</div>
-            )}
-            {isLoadUserLocation && <Loader />}
-            {defaultCity.id && (
+            {currentDefaultCity.status === 'load' && <Loader />}
+            {currentDefaultCity.id && (
                 <>
                     <div className="default-city__section-title">your city</div>
-                    <CityItem city={defaultCity} excludeDeleteIcon />
+                    <CityItem city={currentDefaultCity} excludeDeleteIcon />
                 </>
             )}
         </div>
     );
-};
-
-DefaultCity.propTypes = {
-    defaultCity: PropTypes.objectOf(PropTypes.any).isRequired,
-    isLoadUserLocation: PropTypes.bool.isRequired,
-    isErrorLoadUserLocation: PropTypes.bool.isRequired
 };
 
 export default DefaultCity;

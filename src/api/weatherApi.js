@@ -1,5 +1,5 @@
 const host = 'http://api.openweathermap.org/data/2.5/';
-const userId = 'de1d40a790b506636e2f125ec672ad40';
+const userId = '9ed8619ef2f1ecbe0ad26826adf12702';
 
 const UnitsType = {
     METRIC: 'metric'

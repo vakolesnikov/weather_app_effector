@@ -7,7 +7,7 @@ const geoOptions = {
 export default {
     getCurrentPosition: (successHandler, errorHandler = Function.prototype) =>
         navigator.geolocation.watchPosition(
-            ({ coords }) => successHandler(coords.latitude, coords.longitude),
+            ({ coords }) => successHandler(coords),
             errorHandler,
             geoOptions
         )

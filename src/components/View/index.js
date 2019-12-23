@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import SearchInterface from '../../containers/SearchInterface';
+import SearchInterface from '../SearchInterface';
 
-import FavoritesCities from '../../containers/FavoritesCities';
-import DefaultCity from '../../containers/DefaultCity';
+import FavoritesCities from '../FavoritesCities';
+import DefaultCity from '../DefaultCity';
 import './index.css';
+import { initApp, getGeoLocation } from '../../events';
 
-export default function View(props) {
+export default function View() {
     useEffect(() => {
-        const { actionInitApp } = props;
-
-        actionInitApp();
+        getGeoLocation();
+        initApp();
     }, []);
 
     const [isVisibleSearchInput, setIsVisibleSearchInput] = useState(false);
@@ -44,7 +44,3 @@ export default function View(props) {
         </div>
     );
 }
-
-View.propTypes = {
-    actionInitApp: PropTypes.func.isRequired
-};

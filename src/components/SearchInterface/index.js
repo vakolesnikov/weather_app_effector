@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useStore } from 'effector-react';
 import PropTypes from 'prop-types';
 
 import ClearIcon from '../../icons/Clear';
@@ -6,89 +7,65 @@ import FoundCities from '../FoundCities';
 
 import './index.css';
 
-import { searchCity } from '../../events';
+import { removeCitiesFound, searchCity } from '../../events';
+import { foundCities } from '../../store';
 
-class SearchInterface extends React.Component {
-    static propTypes = {
-        actionSearchCity: PropTypes.func.isRequired,
-        actionRemoveCitiesFound: PropTypes.func.isRequired,
-        actionAddCity: PropTypes.func.isRequired,
-        handleCloseSearchInterface: PropTypes.func.isRequired,
-        citiesFound: PropTypes.arrayOf(PropTypes.object).isRequired
-    };
+export default function SearchInterface(props) {
+    const [cityValue, setCityValue] = useState('');
+    const currentFoundCities = useStore(foundCities);
 
-    constructor(props) {
-        super(props);
-
-        this.state = { cityValue: '' };
-    }
-
-    handleFindCity = e => {
-        const { actionSearchCity } = this.props;
+    const handleFindCity = e => {
         const { value } = e.target;
 
-        this.setState({
-            cityValue: value
-        });
-        actionSearchCity(value);
-
+        setCityValue(value);
         searchCity(value);
     };
 
-    handleClearSearchInput = () => {
-        const { actionRemoveCitiesFound } = this.props;
-
-        this.setState({ cityValue: '' });
-        actionRemoveCitiesFound();
+    const handleClearSearchInput = () => {
+        setCityValue('');
+        removeCitiesFound();
     };
 
-    handleCloseSearchInterface = () => {
-        const { handleCloseSearchInterface, actionRemoveCitiesFound } = this.props;
+    const handleCloseSearchInterface = () => {
+        const { handleCloseSearchInterface: customHandleCloseSearchInterface } = props;
 
-        handleCloseSearchInterface();
-        actionRemoveCitiesFound();
+        customHandleCloseSearchInterface();
+        removeCitiesFound();
     };
 
-    render() {
-        const { citiesFound, actionAddCity } = this.props;
-        const { cityValue } = this.state;
+    return (
+        <div className="search-interface">
+            <div className="search-interface__overlay" />
+            <div className="search-interface__input-wrapper">
+                <input
+                    onChange={handleFindCity}
+                    value={cityValue}
+                    className="search-interface__search-city-input"
+                    placeholder="Type City name"
+                />
+                <button
+                    type="button"
+                    onClick={handleClearSearchInput}
+                    className="search-interface__clear-button"
+                >
+                    <ClearIcon className="search-interface__clear-button-icon" />
+                </button>
 
-        return (
-            <div className="search-interface">
-                <div className="search-interface__overlay" />
-                <div className="search-interface__input-wrapper">
-                    <input
-                        onChange={this.handleFindCity}
-                        value={cityValue}
-                        className="search-interface__search-city-input"
-                        placeholder="Type City name"
-                    />
-                    <button
-                        type="button"
-                        onClick={this.handleClearSearchInput}
-                        className="search-interface__clear-button"
-                    >
-                        <ClearIcon className="search-interface__clear-button-icon" />
-                    </button>
-
-                    <button
-                        type="button"
-                        className="search-interface__cancel-button"
-                        onClick={this.handleCloseSearchInterface}
-                    >
-                        Close
-                    </button>
-                </div>
-                {!!citiesFound.length && (
-                    <FoundCities
-                        citiesFound={citiesFound}
-                        actionAddCity={actionAddCity}
-                        handleCloseSearchInterface={this.handleCloseSearchInterface}
-                    />
-                )}
+                <button
+                    type="button"
+                    className="search-interface__cancel-button"
+                    onClick={handleCloseSearchInterface}
+                >
+                    Close
+                </button>
             </div>
-        );
-    }
+            {!!currentFoundCities.length && (
+                <FoundCities handleCloseSearchInterface={handleCloseSearchInterface} />
+            )}
+        </div>
+    );
 }
 
-export default SearchInterface;
+SearchInterface.propTypes = {
+    handleCloseSearchInterface: PropTypes.func.isRequired
+};
