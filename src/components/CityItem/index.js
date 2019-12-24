@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import DeleteIcon from '../../icons/Delete';
 
-import './index.css';
+// import './index.css';
+import CitiItemContainer from './CitiItemContainer';
 
 import { removeCity } from '../../events';
 
@@ -13,7 +14,7 @@ const CityItem = ({ city, excludeDeleteIcon }) => {
     const handleRemoveClick = () => removeCity(id);
 
     return (
-        <div key={city.id} className="city-item">
+        <CitiItemContainer>
             <div className="city-item__weather">
                 <img
                     className="city-item__weather-icon"
@@ -35,7 +36,7 @@ const CityItem = ({ city, excludeDeleteIcon }) => {
                     <DeleteIcon />
                 </button>
             )}
-        </div>
+        </CitiItemContainer>
     );
 };
 

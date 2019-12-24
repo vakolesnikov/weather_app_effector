@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import './index.css';
 import { useStore } from 'effector-react';
+
+import FoundCitiesContainer from './FoundCitiesContainer';
 import { foundCities } from '../../store';
 import { addCity } from '../../events';
 
@@ -11,7 +11,7 @@ const FoundCities = props => {
     const currentFoundCities = useStore(foundCities);
 
     return (
-        <div className="found-cities">
+        <FoundCitiesContainer>
             {currentFoundCities.map(city => {
                 const { id, name, weather, main } = city;
 
@@ -47,7 +47,7 @@ const FoundCities = props => {
                     </button>
                 );
             })}
-        </div>
+        </FoundCitiesContainer>
     );
 };
 

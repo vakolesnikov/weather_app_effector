@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import ViewContainer from './ViewContainer';
 
 import SearchInterface from '../SearchInterface';
 
@@ -25,7 +25,7 @@ export default function View() {
     };
 
     return (
-        <div className="main-container">
+        <ViewContainer>
             <div className="main-container__logo">Weather</div>
             <button
                 type="button"
@@ -41,6 +41,6 @@ export default function View() {
             {isVisibleSearchInput && (
                 <SearchInterface handleCloseSearchInterface={handleCloseSearchInterface} />
             )}
-        </div>
+        </ViewContainer>
     );
 }

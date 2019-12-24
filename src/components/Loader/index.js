@@ -1,14 +1,13 @@
 import React from 'react';
-
-import './index.css';
+import LoaderContainer from './LoaderContainer';
 
 const Loader = () => (
-    <div className="lds-ring">
+    <LoaderContainer>
         <div />
         <div />
         <div />
         <div />
-    </div>
+    </LoaderContainer>
 );
 
 export default Loader;

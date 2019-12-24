@@ -1,0 +1,45 @@
+import styled from 'styled-components';
+
+export default styled.div`
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    padding: 30px;
+
+    & .found-cities__city {
+        display: flex;
+        max-width: 580px;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: none;
+        background-color: #eee;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    & .found-cities__city:hover {
+        transform: scale(1.05);
+    }
+
+    & .found-cities__city-name {
+        font-size: 25px;
+    }
+
+    & .found-cities__weather-description {
+        font-size: 18px;
+    }
+
+    & .found-cities__city-information {
+        text-align: left;
+    }
+
+    & .found-cities__weather-icon {
+        display: block;
+    }
+`;

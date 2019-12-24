@@ -1,17 +1,17 @@
 import React from 'react';
 
 import { useStore } from 'effector-react';
-import Loader from '../Loader';
 
+import DefaultCityContainer from './DefaultCityContainer';
+import Loader from '../Loader';
 import CityItem from '../CityItem';
-import './index.css';
 import { defaultCity } from '../../store';
 
 const DefaultCity = () => {
     const currentDefaultCity = useStore(defaultCity);
 
     return (
-        <div className="default-city">
+        <DefaultCityContainer>
             {currentDefaultCity.status === 'load' && <Loader />}
             {currentDefaultCity.id && (
                 <>
@@ -19,7 +19,7 @@ const DefaultCity = () => {
                     <CityItem city={currentDefaultCity} excludeDeleteIcon />
                 </>
             )}
-        </div>
+        </DefaultCityContainer>
     );
 };
 

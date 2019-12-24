@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ClearIcon from '../../icons/Clear';
 import FoundCities from '../FoundCities';
 
-import './index.css';
+import SearchInterfaceContainer from './SearchInterfaceContainer';
 
 import { removeCitiesFound, searchCity } from '../../events';
 import { foundCities } from '../../store';
@@ -34,7 +34,7 @@ export default function SearchInterface(props) {
     };
 
     return (
-        <div className="search-interface">
+        <SearchInterfaceContainer>
             <div className="search-interface__overlay" />
             <div className="search-interface__input-wrapper">
                 <input
@@ -62,7 +62,7 @@ export default function SearchInterface(props) {
             {!!currentFoundCities.length && (
                 <FoundCities handleCloseSearchInterface={handleCloseSearchInterface} />
             )}
-        </div>
+        </SearchInterfaceContainer>
     );
 }
 
