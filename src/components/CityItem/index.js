@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import DeleteIcon from '../../icons/Delete';
 
-// import './index.css';
 import CitiItemContainer from './CitiItemContainer';
 
 import { removeCity } from '../../events';
