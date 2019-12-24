@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useStore } from 'effector-react';
 import PropTypes from 'prop-types';
 
@@ -11,8 +11,13 @@ import { removeCitiesFound, searchCity } from '../../events';
 import { foundCities } from '../../store';
 
 export default function SearchInterface(props) {
+    const searchInput = useRef(null);
     const [cityValue, setCityValue] = useState('');
     const currentFoundCities = useStore(foundCities);
+
+    useEffect(() => {
+        searchInput.current.focus();
+    }, []);
 
     const handleFindCity = e => {
         const { value } = e.target;
@@ -38,6 +43,7 @@ export default function SearchInterface(props) {
             <div className="search-interface__overlay" />
             <div className="search-interface__input-wrapper">
                 <input
+                    ref={searchInput}
                     onChange={handleFindCity}
                     value={cityValue}
                     className="search-interface__search-city-input"

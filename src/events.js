@@ -27,7 +27,7 @@ initApp.use(() => {
         return api.weather.getWeatherByGroupCityId(citiesIds);
     }
 
-    return 'list';
+    return null;
 });
 getGeoLocation.use(() => {
     api.geolocation.getCurrentPosition(getCityForGeoLocation);

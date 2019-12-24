@@ -17,20 +17,15 @@ foundCities
     .reset(events.removeCitiesFound);
 
 favoriteCities
-    .on(events.initApp.done, (_, { result }) => result.list)
+    .on(events.initApp.done, (state, { result }) => (result ? result.list : state))
     .on(events.addCity.done, (cities, res) => {
         const { result } = res;
 
-        if (result.cod === 200) {
-            api.storage.addCity(result.id);
-            return [...cities, result];
-        }
-
-        return cities;
+        api.storage.addCity(result.id);
+        return [...cities, result];
     })
     .on(events.removeCity, (cities, id) => {
         api.storage.removeCity(id);
-
         return cities.filter(city => city.id !== id);
     });
 

@@ -8,10 +8,14 @@ import DefaultCity from '../DefaultCity';
 import './index.css';
 import { initApp, getGeoLocation } from '../../events';
 
+const ONE_MINUTE = 60000;
+
 export default function View() {
     useEffect(() => {
         getGeoLocation();
         initApp();
+
+        setInterval(() => initApp(), ONE_MINUTE);
     }, []);
 
     const [isVisibleSearchInput, setIsVisibleSearchInput] = useState(false);
