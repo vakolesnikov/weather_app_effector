@@ -1,5 +1,5 @@
 import React from 'react';
-import LoaderContainer from './LoaderContainer';
+import LoaderContainer from 'src/components/loader/loader-container';
 
 const Loader = () => (
     <LoaderContainer>

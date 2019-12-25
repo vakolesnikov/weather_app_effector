@@ -1,9 +1,9 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import Loader from 'src/components/Loader';
-import CityItem from 'src/components/CityItem';
+import Loader from 'src/components/loader';
+import CityItem from 'src/components/city-item';
 
-import DefaultCityContainer from './DefaultCityContainer';
+import DefaultCityContainer from 'src/components/default-city/default-city-container';
 import { defaultCity } from './model';
 
 const DefaultCity = () => {

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { initApp, getGeoLocation } from 'src/common-events/events';
-import SearchInterface from 'src/components/SearchInterface';
-import FavoritesCities from 'src/components/FavoritesCities';
-import DefaultCity from 'src/components/DefaultCity';
+import SearchInterface from 'src/components/search-interface';
+import FavoritesCities from 'src/components/favorites-cities';
+import DefaultCity from 'src/components/default-city';
 
-import ViewContainer from './ViewContainer';
+import ViewContainer from 'src/components/view/view-container';
 import './index.css';
 
 const ONE_MINUTE = 60000;
