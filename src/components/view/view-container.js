@@ -44,6 +44,13 @@ export default styled.div`
         border-color: #000;
     }
 
+    & .update-data-container {
+        position: absolute;
+        bottom: 10px;
+        font-size: 25px;
+        color: #ff0000;
+    }
+
     @media (max-width: 600px) {
         .main-container {
             padding: 0 20px;

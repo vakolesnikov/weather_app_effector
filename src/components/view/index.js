@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { initApp, getGeoLocation } from 'src/common-events/events';
+import { useStore } from 'effector-react';
+import { initApp, getGeoLocation, startUpdate } from 'src/common-events/events';
 import SearchInterface from 'src/components/search-interface';
 import FavoritesCities from 'src/components/favorites-cities';
 import DefaultCity from 'src/components/default-city';
-
 import ViewContainer from 'src/components/view/view-container';
 import './index.css';
+import { showUpdateLoader } from './model';
 
 const ONE_MINUTE = 60000;
 
 export default function View() {
+    const isShowUpdateLoader = useStore(showUpdateLoader);
+
     useEffect(() => {
         getGeoLocation();
         initApp();
 
-        setInterval(() => initApp(), ONE_MINUTE);
+        setInterval(() => {
+            startUpdate();
+            initApp();
+        }, ONE_MINUTE);
     }, []);
 
     const [isVisibleSearchInput, setIsVisibleSearchInput] = useState(false);
@@ -44,6 +50,7 @@ export default function View() {
             {isVisibleSearchInput && (
                 <SearchInterface handleCloseSearchInterface={handleCloseSearchInterface} />
             )}
+            {isShowUpdateLoader && <div className="update-data-container">update data...</div>}
         </ViewContainer>
     );
 }

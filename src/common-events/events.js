@@ -29,3 +29,4 @@ export const getGeoLocation = createEffect('getGeoLocation').use(() =>
 
 export const removeCitiesFound = createEvent('removeCitiesFound');
 export const removeCity = createEvent('removeCity');
+export const startUpdate = createEvent('startUpdate');
