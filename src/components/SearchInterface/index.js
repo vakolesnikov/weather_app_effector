@@ -2,13 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useStore } from 'effector-react';
 import PropTypes from 'prop-types';
 
+import FoundCities from 'components/FoundCities';
 import ClearIcon from '../../icons/Clear';
-import FoundCities from '../FoundCities';
 
 import SearchInterfaceContainer from './SearchInterfaceContainer';
 
-import { removeCitiesFound, searchCity } from '../../events';
-import { foundCities } from '../../store';
+import { removeCitiesFound, addCity, searchCity } from '../../events';
+
+import { foundCities } from './model';
 
 export default function SearchInterface(props) {
     const searchInput = useRef(null);
@@ -66,7 +67,11 @@ export default function SearchInterface(props) {
                 </button>
             </div>
             {!!currentFoundCities.length && (
-                <FoundCities handleCloseSearchInterface={handleCloseSearchInterface} />
+                <FoundCities
+                    handleCloseSearchInterface={handleCloseSearchInterface}
+                    foundCities={currentFoundCities}
+                    addCity={addCity}
+                />
             )}
         </SearchInterfaceContainer>
     );

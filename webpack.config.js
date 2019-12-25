@@ -7,6 +7,13 @@ module.exports = {
         path: path.join(__dirname, '/public'),
         filename: 'index.js'
     },
+    resolve: {
+        modules: [path.join(__dirname, 'src'), 'node_modules'],
+        extensions: ['.js', '.jsx', '.json'],
+        alias: {
+            modernizr$: path.resolve(__dirname, './.modernizrrc')
+        }
+    },
     module: {
         rules: [
             {

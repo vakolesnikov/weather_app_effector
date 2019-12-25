@@ -5,7 +5,7 @@ import { useStore } from 'effector-react';
 import DefaultCityContainer from './DefaultCityContainer';
 import Loader from '../Loader';
 import CityItem from '../CityItem';
-import { defaultCity } from '../../store';
+import { defaultCity } from './model';
 
 const DefaultCity = () => {
     const currentDefaultCity = useStore(defaultCity);

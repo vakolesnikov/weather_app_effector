@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStore } from 'effector-react';
-
 import FoundCitiesContainer from './FoundCitiesContainer';
-import { foundCities } from '../../store';
-import { addCity } from '../../events';
+
+import {addCity} from '../../events';
 
 const FoundCities = props => {
-    const { handleCloseSearchInterface } = props;
-    const currentFoundCities = useStore(foundCities);
+    const { handleCloseSearchInterface, foundCities } = props;
 
     return (
         <FoundCitiesContainer>
-            {currentFoundCities.map(city => {
+            {foundCities.map((city, index) => {
                 const { id, name, weather, main } = city;
 
                 const handleClickCity = () => {
@@ -23,7 +20,7 @@ const FoundCities = props => {
                 return (
                     <button
                         className="found-cities__city"
-                        key={id}
+                        key={`${id}${index}`}
                         onClick={handleClickCity}
                         type="button"
                     >
@@ -52,7 +49,9 @@ const FoundCities = props => {
 };
 
 FoundCities.propTypes = {
-    handleCloseSearchInterface: PropTypes.func.isRequired
+    foundCities: PropTypes.arrayOf(PropTypes.any).isRequired,
+    handleCloseSearchInterface: PropTypes.func.isRequired,
+    addCity: PropTypes.func.isRequired
 };
 
 export default FoundCities;

@@ -3,7 +3,7 @@ import { useStore } from 'effector-react';
 import CityItem from '../CityItem';
 
 import FavoritesCitiesContainer from './FavoritesCitiesContainer';
-import { favoriteCities } from '../../store';
+import { favoriteCities } from './model';
 
 const FavoritesCities = () => {
     const currentFavoriteCities = useStore(favoriteCities);
