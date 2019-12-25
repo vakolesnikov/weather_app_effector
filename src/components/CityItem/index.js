@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { removeCity } from 'src/events';
+import { removeCity } from 'src/common-events/events';
 import DeleteIcon from 'src/icons/Delete';
 
 import CitiItemContainer from './CitiItemContainer';

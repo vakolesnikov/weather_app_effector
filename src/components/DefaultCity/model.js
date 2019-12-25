@@ -1,5 +1,5 @@
 import { createStore } from 'effector';
-import * as events from '../../events';
+import * as events from 'src/common-events/events';
 
 export const defaultCity = createStore({ status: 'load' });
 

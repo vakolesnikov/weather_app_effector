@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { initApp, getGeoLocation } from 'src/events';
+import { initApp, getGeoLocation } from 'src/common-events/events';
 import SearchInterface from 'src/components/SearchInterface';
 import FavoritesCities from 'src/components/FavoritesCities';
 import DefaultCity from 'src/components/DefaultCity';

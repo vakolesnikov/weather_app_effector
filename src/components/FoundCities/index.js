@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addCity } from 'src/events';
+import { addCity } from 'src/common-events/events';
 
 import FoundCitiesContainer from './FoundCitiesContainer';
 

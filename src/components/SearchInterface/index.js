@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useStore } from 'effector-react';
 import PropTypes from 'prop-types';
-import { removeCitiesFound, addCity, searchCity } from 'src/events';
+import { removeCitiesFound, addCity, searchCity } from 'src/common-events/events';
 import FoundCities from 'src/components/FoundCities';
 import ClearIcon from 'src/icons/Clear';
 
