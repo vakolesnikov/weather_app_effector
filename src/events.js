@@ -3,24 +3,7 @@ import api from 'src/api';
 
 const MIN_CITY_NAME_LENGTH = 3;
 
-export const searchCity = createEffect('getCities');
-export const addCity = createEffect('addCity');
-export const initApp = createEffect('initApp');
-export const getGeoLocation = createEffect('getGeoLocation');
-export const getCityForGeoLocation = createEffect('setGeoLocation');
-
-export const removeCitiesFound = createEvent('removeCitiesFound');
-export const removeCity = createEvent('removeCity');
-
-searchCity.use(city => {
-    if (city.length >= MIN_CITY_NAME_LENGTH) {
-        return api.weather.searchCity(city);
-    }
-
-    return null;
-});
-addCity.use(id => api.weather.getWeatherByCityId(id));
-initApp.use(() => {
+export const initApp = createEffect('initApp').use(() => {
     const citiesIds = api.storage.getCitiesIds();
 
     if (citiesIds.length) {
@@ -29,9 +12,20 @@ initApp.use(() => {
 
     return null;
 });
-getGeoLocation.use(() => {
-    api.geolocation.getCurrentPosition(getCityForGeoLocation);
+export const searchCity = createEffect('getCities').use(city => {
+    if (city.length >= MIN_CITY_NAME_LENGTH) {
+        return api.weather.searchCity(city);
+    }
+
+    return null;
 });
-getCityForGeoLocation.use(({ latitude, longitude }) => {
-    return api.weather.getWeatherByCityCoordinates(latitude, longitude);
-});
+export const addCity = createEffect('addCity').use(id => api.weather.getWeatherByCityId(id));
+export const getCityForGeoLocation = createEffect('setGeoLocation').use(({ latitude, longitude }) =>
+    api.weather.getWeatherByCityCoordinates(latitude, longitude)
+);
+export const getGeoLocation = createEffect('getGeoLocation').use(() =>
+    api.geolocation.getCurrentPosition(getCityForGeoLocation)
+);
+
+export const removeCitiesFound = createEvent('removeCitiesFound');
+export const removeCity = createEvent('removeCity');
