@@ -8,7 +8,7 @@ module.exports = {
         filename: 'index.js'
     },
     resolve: {
-        modules: [path.join(__dirname, 'src'), 'node_modules'],
+        modules: [path.join(__dirname), 'node_modules'],
         extensions: ['.js', '.jsx', '.json'],
         alias: {
             modernizr$: path.resolve(__dirname, './.modernizrrc')

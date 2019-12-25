@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import DeleteIcon from '../../icons/Delete';
+import { removeCity } from 'src/events';
+import DeleteIcon from 'src/icons/Delete';
 
 import CitiItemContainer from './CitiItemContainer';
-
-import { removeCity } from '../../events';
 
 const CityItem = ({ city, excludeDeleteIcon }) => {
     const { id, main, weather } = city;

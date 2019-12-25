@@ -1,7 +1,6 @@
 import { createStore } from 'effector';
-
-import api from 'api/index';
-import { initApp, addCity, removeCity } from '../../events';
+import api from 'src/api/index';
+import { initApp, addCity, removeCity } from 'src/events';
 
 export const favoriteCities = createStore([])
     .on(initApp.done, (state, { result }) => (result ? result.list : state))

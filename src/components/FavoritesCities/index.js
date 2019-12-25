@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import CityItem from '../CityItem';
+import CityItem from 'src/components/CityItem';
 
 import FavoritesCitiesContainer from './FavoritesCitiesContainer';
 import { favoriteCities } from './model';

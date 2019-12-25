@@ -1,6 +1,5 @@
 import { createEvent, createEffect } from 'effector';
-import api from './api';
-import weatherApi from './api/weatherApi';
+import api from 'src/api';
 
 const MIN_CITY_NAME_LENGTH = 3;
 
@@ -34,5 +33,5 @@ getGeoLocation.use(() => {
     api.geolocation.getCurrentPosition(getCityForGeoLocation);
 });
 getCityForGeoLocation.use(({ latitude, longitude }) => {
-    return weatherApi.getWeatherByCityCoordinates(latitude, longitude);
+    return api.weather.getWeatherByCityCoordinates(latitude, longitude);
 });

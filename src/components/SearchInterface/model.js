@@ -1,6 +1,5 @@
 import { createStore } from 'effector';
-
-import { searchCity, removeCitiesFound } from '../../events';
+import { searchCity, removeCitiesFound } from 'src/events';
 
 export const foundCities = createStore([]);
 

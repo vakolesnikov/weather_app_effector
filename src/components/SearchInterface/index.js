@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useStore } from 'effector-react';
 import PropTypes from 'prop-types';
-
-import FoundCities from 'components/FoundCities';
-import ClearIcon from '../../icons/Clear';
+import { removeCitiesFound, addCity, searchCity } from 'src/events';
+import FoundCities from 'src/components/FoundCities';
+import ClearIcon from 'src/icons/Clear';
 
 import SearchInterfaceContainer from './SearchInterfaceContainer';
-
-import { removeCitiesFound, addCity, searchCity } from '../../events';
-
 import { foundCities } from './model';
 
 export default function SearchInterface(props) {
