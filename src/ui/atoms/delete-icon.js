@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Delete = props => {
+const DeleteIcon = props => {
     const { className } = props;
 
     return (
@@ -30,12 +30,12 @@ const Delete = props => {
     );
 };
 
-Delete.propTypes = {
+DeleteIcon.propTypes = {
     className: PropTypes.string
 };
 
-Delete.defaultProps = {
+DeleteIcon.defaultProps = {
     className: ''
 };
 
-export default Delete;
+export { DeleteIcon };

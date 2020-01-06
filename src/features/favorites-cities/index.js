@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import CityItem from 'src/components/city-item';
+import { CityItem } from 'src/ui/organisms';
 
-import FavoritesCitiesContainer from 'src/components/favorites-cities/favorites-cities-container';
+import FavoritesCitiesContainer from 'src/features/favorites-cities/favorites-cities-container';
 import { favoriteCities } from './model';
 
 const FavoritesCities = () => {

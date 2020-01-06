@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useStore } from 'effector-react';
 import { initApp, getGeoLocation, startUpdate } from 'src/common-events/events';
-import SearchInterface from 'src/components/search-interface';
-import FavoritesCities from 'src/components/favorites-cities';
-import DefaultCity from 'src/components/default-city';
-import ViewContainer from 'src/components/view/view-container';
+import SearchInterface from 'src/features/search-interface';
+import FavoritesCities from 'src/features/favorites-cities';
+import DefaultCity from 'src/features/default-city';
+import ViewContainer from 'src/features/view/view-container';
 import './index.css';
-import { showUpdateLoader } from './model';
+import { showUpdateLoader, defaultCity } from './model';
 
 const ONE_MINUTE = 60000;
 
 export default function View() {
     const isShowUpdateLoader = useStore(showUpdateLoader);
+    const currentDefaultCity = useStore(defaultCity);
 
     useEffect(() => {
         getGeoLocation();
@@ -44,7 +45,7 @@ export default function View() {
                 Add city
             </button>
 
-            <DefaultCity />
+            {/*<DefaultCity defaultCity={currentDefaultCity} />*/}
 
             <FavoritesCities />
             {isVisibleSearchInput && (

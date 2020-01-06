@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addCity } from 'src/common-events/events';
 
-import FoundCitiesContainer from 'src/components/found-cities/found-cities-container';
+import FoundCitiesContainer from 'src/features/found-cities/found-cities-container';
 
 const FoundCities = props => {
     const { handleCloseSearchInterface, foundCities } = props;
