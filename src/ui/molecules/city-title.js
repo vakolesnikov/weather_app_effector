@@ -5,9 +5,8 @@ import { CityName, CityWeatherDescription } from 'src/ui/atoms';
 
 const CityTitleWrapper = styled.div`
     display: flex;
-    width: 60%;
     flex-direction: column;
-    padding-left: 60px;
+    width: 100%;
 `;
 
 const CityTitle = ({ name, description }) => (

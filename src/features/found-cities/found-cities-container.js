@@ -10,17 +10,13 @@ export default styled.div`
     padding: 30px;
 
     & .found-cities__city {
-        display: flex;
         max-width: 580px;
         width: 100%;
-        margin-bottom: 20px;
-        padding: 20px;
         border: none;
-        background-color: #eee;
-        justify-content: space-between;
-        align-items: center;
         cursor: pointer;
         transition: 0.5s;
+        text-align: left;
+        background: none;
     }
 
     & .found-cities__city:hover {

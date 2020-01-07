@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { addCity } from 'src/common-events/events';
 
 import FoundCitiesContainer from 'src/features/found-cities/found-cities-container';
+import { CityTitle, CityWeather } from 'src/ui/molecules';
+import { CityItem } from '../../ui/organisms';
 
 const FoundCities = props => {
     const { handleCloseSearchInterface, foundCities } = props;
@@ -10,7 +12,7 @@ const FoundCities = props => {
     return (
         <FoundCitiesContainer>
             {foundCities.map((city, index) => {
-                const { id, name, weather, main } = city;
+                const { id } = city;
 
                 const handleClickCity = () => {
                     addCity(id);
@@ -24,23 +26,7 @@ const FoundCities = props => {
                         onClick={handleClickCity}
                         type="button"
                     >
-                        <div className="found-cities__city-information">
-                            <div className="found-cities__city-name">{name}</div>
-                            <div className="found-cities__weather-description">
-                                {weather[0].description}
-                            </div>
-                        </div>
-
-                        <div className="found-cities__weather">
-                            <img
-                                className="found-cities__weather-icon"
-                                src={`http://openweathermap.org/img/w/${weather[0].icon}.png`}
-                                alt="img"
-                            />
-                            <div className="found-cities__weather-value">
-                                {Math.round(main.temp)} ℃
-                            </div>
-                        </div>
+                        <CityItem city={city} theme="lightGray" excludeDeleteIcon />
                     </button>
                 );
             })}

@@ -23,8 +23,8 @@ export const addCity = createEffect('addCity').use(id => api.weather.getWeatherB
 export const getCityForGeoLocation = createEffect('setGeoLocation').use(({ latitude, longitude }) =>
     api.weather.getWeatherByCityCoordinates(latitude, longitude)
 );
-export const getGeoLocation = createEffect('getGeoLocation').use(() =>
-    api.geolocation.getCurrentPosition(getCityForGeoLocation)
+export const getGeoLocation = createEffect('getGeoLocation').use(() => null
+    // api.geolocation.getCurrentPosition(getCityForGeoLocation)
 );
 
 export const removeCitiesFound = createEvent('removeCitiesFound');

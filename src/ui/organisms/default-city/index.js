@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Loader from 'src/features/loader';
-import { CityItem } from 'src/ui/organisms';
 
-import DefaultCityContainer from 'src/features/default-city/default-city-container';
+import { Loader, SectionTitle } from 'src/ui/atoms';
+import { CityItem } from 'src/ui/organisms/index';
+
+import DefaultCityContainer from 'src/ui/organisms/default-city/default-city-container';
 
 const DefaultCity = ({ defaultCity }) => {
     return (
@@ -11,7 +12,7 @@ const DefaultCity = ({ defaultCity }) => {
             {defaultCity.status === 'load' && <Loader />}
             {defaultCity.id && (
                 <>
-                    <div className="default-city__section-title">your city</div>
+                    <SectionTitle title="your city" />
                     <CityItem city={defaultCity} excludeDeleteIcon />
                 </>
             )}
@@ -23,4 +24,4 @@ DefaultCity.propTypes = {
     defaultCity: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
-export default DefaultCity;
+export { DefaultCity };

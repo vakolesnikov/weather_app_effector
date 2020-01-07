@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import React from 'react';
 
 const loaderAnim = keyframes`
         0% {
@@ -9,7 +10,7 @@ const loaderAnim = keyframes`
         }
 `;
 
-export default styled.div`
+const LoaderContainer = styled.div`
     display: block;
     position: relative;
     width: 64px;
@@ -41,3 +42,14 @@ export default styled.div`
         animation-delay: -0.15s;
     }
 `;
+
+const Loader = () => (
+    <LoaderContainer>
+        <div />
+        <div />
+        <div />
+        <div />
+    </LoaderContainer>
+);
+
+export { Loader };

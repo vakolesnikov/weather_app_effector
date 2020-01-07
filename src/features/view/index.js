@@ -3,7 +3,7 @@ import { useStore } from 'effector-react';
 import { initApp, getGeoLocation, startUpdate } from 'src/common-events/events';
 import SearchInterface from 'src/features/search-interface';
 import FavoritesCities from 'src/features/favorites-cities';
-import DefaultCity from 'src/features/default-city';
+import { DefaultCity } from 'src/ui/organisms';
 import ViewContainer from 'src/features/view/view-container';
 import './index.css';
 import { showUpdateLoader, defaultCity } from './model';
@@ -45,7 +45,7 @@ export default function View() {
                 Add city
             </button>
 
-            {/*<DefaultCity defaultCity={currentDefaultCity} />*/}
+            <DefaultCity defaultCity={currentDefaultCity} />
 
             <FavoritesCities />
             {isVisibleSearchInput && (

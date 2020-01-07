@@ -4,3 +4,5 @@ export { CityWeatherIcon } from './city-weather-icon';
 export { CityWeatherTemp } from './city-weather-temp';
 export { CityWeatherDescription } from './city-weather-description';
 export { CityName } from './city-name';
+export { Loader } from './loader';
+export { SectionTitle } from './section-title';

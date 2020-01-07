@@ -1,8 +1,10 @@
 import React from 'react';
 import { useStore } from 'effector-react';
+
 import { CityItem } from 'src/ui/organisms';
 
 import FavoritesCitiesContainer from 'src/features/favorites-cities/favorites-cities-container';
+import { SectionTitle } from '../../ui/atoms';
 import { favoriteCities } from './model';
 
 const FavoritesCities = () => {
@@ -14,7 +16,7 @@ const FavoritesCities = () => {
 
     return (
         <FavoritesCitiesContainer>
-            <div className="favorites-cities__section-title">favorites cities</div>
+            <SectionTitle title="favorites cities" />
             {currentFavoriteCities.map(city => (
                 <CityItem key={city.id} city={city} />
             ))}
