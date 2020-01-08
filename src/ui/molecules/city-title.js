@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import React from 'react';
-
 import { CityName, CityWeatherDescription } from 'src/ui/atoms';
 
 const CityTitleWrapper = styled.div`

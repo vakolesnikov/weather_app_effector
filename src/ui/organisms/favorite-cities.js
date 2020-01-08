@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { CityItem } from 'src/ui/organisms/index';
 import { SectionTitle } from 'src/ui/atoms';
 

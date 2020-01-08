@@ -2,10 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/favorite-cities.js',
+    entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/public'),
-        filename: 'favorite-cities.js'
+        filename: 'index.js'
     },
     resolve: {
         modules: [path.join(__dirname), 'node_modules'],

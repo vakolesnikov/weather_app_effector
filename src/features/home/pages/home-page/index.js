@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useStore } from 'effector-react';
-
 import { DefaultCity, SearchInterface, FavoriteCities } from 'src/ui/organisms';
 
 import * as model from '../../model';
-
 import ViewContainer from './home-container';
 
 export const Home = () => {

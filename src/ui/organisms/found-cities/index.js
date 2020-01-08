@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import FoundCitiesContainer from 'src/ui/organisms/found-cities/found-cities-container';
 import { CityItem } from 'src/ui/organisms';
+
+import FoundCitiesContainer from './found-cities-container';
 
 export const FoundCities = props => {
     const { handleCloseSearchInterface, foundCities, addCity } = props;

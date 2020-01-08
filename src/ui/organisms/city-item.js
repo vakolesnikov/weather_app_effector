@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { DeleteIcon } from 'src/ui/atoms';
 import { CityWeather, CityTitle } from 'src/ui/molecules';
 
