@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addCity } from 'src/common-events/events';
 
-import FoundCitiesContainer from 'src/features/found-cities/found-cities-container';
-import { CityTitle, CityWeather } from 'src/ui/molecules';
-import { CityItem } from '../../ui/organisms';
+import FoundCitiesContainer from 'src/ui/organisms/found-cities/found-cities-container';
+import { CityItem } from 'src/ui/organisms';
 
-const FoundCities = props => {
-    const { handleCloseSearchInterface, foundCities } = props;
+export const FoundCities = props => {
+    const { handleCloseSearchInterface, foundCities, addCity } = props;
 
     return (
         <FoundCitiesContainer>
@@ -39,5 +37,3 @@ FoundCities.propTypes = {
     handleCloseSearchInterface: PropTypes.func.isRequired,
     addCity: PropTypes.func.isRequired
 };
-
-export default FoundCities;

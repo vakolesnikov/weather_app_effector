@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { removeCity } from 'src/common-events/events';
 
 import { DeleteIcon } from 'src/ui/atoms';
 import { CityWeather, CityTitle } from 'src/ui/molecules';
@@ -30,7 +29,7 @@ const CityItemContainer = styled.div`
     }
 `;
 
-const CityItem = ({ city, excludeDeleteIcon, theme }) => {
+const CityItem = ({ city, excludeDeleteIcon, theme, removeCity }) => {
     const { id, main, weather, name } = city;
     const { icon, description } = weather[0];
 
@@ -55,11 +54,13 @@ const CityItem = ({ city, excludeDeleteIcon, theme }) => {
 
 CityItem.propTypes = {
     city: PropTypes.objectOf(PropTypes.any).isRequired,
+    removeCity: PropTypes.func,
     excludeDeleteIcon: PropTypes.bool,
     theme: PropTypes.string
 };
 
 CityItem.defaultProps = {
+    removeCity: Function.prototype,
     excludeDeleteIcon: false,
     theme: 'white'
 };

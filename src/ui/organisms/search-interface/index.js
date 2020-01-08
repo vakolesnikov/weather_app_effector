@@ -1,17 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useStore } from 'effector-react';
 import PropTypes from 'prop-types';
-import { removeCitiesFound, addCity, searchCity } from 'src/common-events/events';
-import FoundCities from 'src/features/found-cities';
+import { FoundCities } from 'src/ui/organisms';
 import { ClearIcon } from 'src/ui/atoms';
 
-import SearchInterfaceContainer from 'src/features/search-interface/search-interface-container';
-import { foundCities } from './model';
+import SearchInterfaceContainer from './search-interface-container';
 
-export default function SearchInterface(props) {
+export const SearchInterface = props => {
     const searchInput = useRef(null);
     const [cityValue, setCityValue] = useState('');
-    const currentFoundCities = useStore(foundCities);
+    const { cities, removeCitiesFound, addCity, searchCity } = props;
 
     useEffect(() => {
         searchInput.current.focus();
@@ -63,17 +60,21 @@ export default function SearchInterface(props) {
                     Close
                 </button>
             </div>
-            {!!currentFoundCities.length && (
+            {!!cities.length && (
                 <FoundCities
                     handleCloseSearchInterface={handleCloseSearchInterface}
-                    foundCities={currentFoundCities}
+                    foundCities={cities}
                     addCity={addCity}
                 />
             )}
         </SearchInterfaceContainer>
     );
-}
+};
 
 SearchInterface.propTypes = {
-    handleCloseSearchInterface: PropTypes.func.isRequired
+    handleCloseSearchInterface: PropTypes.func.isRequired,
+    cities: PropTypes.arrayOf(PropTypes.any).isRequired,
+    removeCitiesFound: PropTypes.func.isRequired,
+    addCity: PropTypes.func.isRequired,
+    searchCity: PropTypes.func.isRequired
 };

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import View from './features/view';
+import { Home } from './features/home/pages/home-page';
 import './normalize.css';
+import './index.css';
 
-ReactDOM.render(<View />, document.getElementById('root'));
+ReactDOM.render(<Home />, document.getElementById('root'));

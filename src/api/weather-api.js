@@ -7,25 +7,23 @@ const UnitsType = {
 
 const requestParams = `&appid=${userId}&units=${UnitsType.METRIC}`;
 
-export default {
-    searchCity: city => {
-        return fetch(`${host}find?q=${city}${requestParams}`)
-            .then(res => res.json())
-            .catch(err => console.error(err));
-    },
-    getWeatherByCityId: id => {
-        return fetch(`${host}weather?id=${id}${requestParams}`)
-            .then(res => res.json())
-            .catch(err => console.error(err));
-    },
-    getWeatherByCityCoordinates: (lat, lon) => {
-        return fetch(`${host}/weather?lat=${lat}&lon=${lon}${requestParams}`)
-            .then(res => res.json())
-            .catch(err => console.error(err));
-    },
-    getWeatherByGroupCityId: ids => {
-        return fetch(`${host}group?id=${ids.join(',')}${requestParams}`)
-            .then(res => res.json())
-            .catch(err => console.error(err));
-    }
+export const searchCity = city => {
+    return fetch(`${host}find?q=${city}${requestParams}`)
+        .then(res => res.json())
+        .catch(err => console.error(err));
+};
+export const getWeatherByCityId = id => {
+    return fetch(`${host}weather?id=${id}${requestParams}`)
+        .then(res => res.json())
+        .catch(err => console.error(err));
+};
+export const getWeatherByCityCoordinates = (lat, lon) => {
+    return fetch(`${host}/weather?lat=${lat}&lon=${lon}${requestParams}`)
+        .then(res => res.json())
+        .catch(err => console.error(err));
+};
+export const getWeatherByGroupCityId = ids => {
+    return fetch(`${host}group?id=${ids.join(',')}${requestParams}`)
+        .then(res => res.json())
+        .catch(err => console.error(err));
 };

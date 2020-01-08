@@ -4,11 +4,9 @@ const geoOptions = {
     timeout: 7000
 };
 
-export default {
-    getCurrentPosition: (successHandler, errorHandler = Function.prototype) =>
-        navigator.geolocation.watchPosition(
-            ({ coords }) => successHandler(coords),
-            errorHandler,
-            geoOptions
-        )
-};
+export const getCurrentPosition = (successHandler, errorHandler = Function.prototype) =>
+    navigator.geolocation.watchPosition(
+        ({ coords }) => successHandler(coords),
+        errorHandler,
+        geoOptions
+    );
