@@ -1,12 +1,17 @@
+import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Loader, SectionTitle } from 'src/ui/atoms';
 import { CityItem } from 'src/ui/organisms/index';
 
-import DefaultCityContainer from 'src/ui/organisms/default-city/default-city-container';
+const DefaultCityContainer = styled.div`
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 40px;
+`;
 
-const DefaultCity = ({ defaultCity }) => {
+export const DefaultCity = ({ defaultCity }) => {
     return (
         <DefaultCityContainer>
             {defaultCity.status === 'load' && <Loader />}
@@ -23,5 +28,3 @@ const DefaultCity = ({ defaultCity }) => {
 DefaultCity.propTypes = {
     defaultCity: PropTypes.objectOf(PropTypes.any).isRequired
 };
-
-export { DefaultCity };

@@ -1,9 +1,14 @@
+import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CityItem } from 'src/ui/organisms';
+import { CityItem } from 'src/ui/organisms/index';
 import { SectionTitle } from 'src/ui/atoms';
-import FavoritesCitiesContainer from './favorites-cities-container';
+
+const FavoritesCitiesContainer = styled.div`
+    width: 100%;
+    max-width: 600px;
+`;
 
 export const FavoriteCities = ({ favoriteCities, removeCity }) => {
     if (!favoriteCities.length) {

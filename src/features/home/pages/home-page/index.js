@@ -41,7 +41,7 @@ export const Home = () => {
 
             <DefaultCity defaultCity={defaultCity} />
 
-            <FavoriteCities favoriteCities={favoriteCities} removeCity={model.removeCity} />
+            <FavoriteCities favoriteCities={favoriteCities} removeCity={model.removeCity}/>
             {isVisibleSearchInput && (
                 <SearchInterface
                     cities={foundCities}

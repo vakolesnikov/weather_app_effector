@@ -29,7 +29,7 @@ const CityItemContainer = styled.div`
     }
 `;
 
-const CityItem = ({ city, excludeDeleteIcon, theme, removeCity }) => {
+export const CityItem = ({ city, excludeDeleteIcon, theme, removeCity }) => {
     const { id, main, weather, name } = city;
     const { icon, description } = weather[0];
 
@@ -64,5 +64,3 @@ CityItem.defaultProps = {
     excludeDeleteIcon: false,
     theme: 'white'
 };
-
-export { CityItem };

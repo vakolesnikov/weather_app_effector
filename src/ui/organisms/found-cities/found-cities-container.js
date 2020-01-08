@@ -22,20 +22,4 @@ export default styled.div`
     & .found-cities__city:hover {
         transform: scale(1.05);
     }
-
-    & .found-cities__city-name {
-        font-size: 25px;
-    }
-
-    & .found-cities__weather-description {
-        font-size: 18px;
-    }
-
-    & .found-cities__city-information {
-        text-align: left;
-    }
-
-    & .found-cities__weather-icon {
-        display: block;
-    }
 `;
